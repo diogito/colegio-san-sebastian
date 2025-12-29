@@ -1,14 +1,15 @@
 
 import React from 'react';
 import SidebarLayout from '../../components/Layout/SidebarLayout';
-import { Heart, Brain, Speech } from 'lucide-react';
+import TeamMemberCard from '../../components/UI/TeamMemberCard';
+import { Heart, Brain, Speech, Users } from 'lucide-react';
 
 const pieTeam = [
     {
         name: "ESTEFANI MÉNDEZ",
         role: "COORDINADORA PIE",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8374-scaled-e1713379359277-1024x1024.jpg",
-        icon: <Brain />
+        icon: <Users />
     },
     {
         name: "SARA RIVERA",
@@ -58,39 +59,35 @@ const Pie = () => {
     ];
 
     return (
-        <SidebarLayout title="Equipo PIE (Programa de Integración Escolar)" sidebarTitle="Nosotros" sidebarLinks={sidebarLinks}>
-            <div className="prose max-w-none">
-                <div className="bg-blue-50 border-l-4 border-blue-600 p-4 mb-8">
-                    <p className="text-gray-700 m-0">
-                        El <strong>Programa de Integración Escolar (PIE)</strong> es una estrategia inclusiva del sistema escolar, que tiene el propósito de contribuir al mejoramiento continuo de la calidad de la educación que se imparte en el establecimiento educacional, favoreciendo la presencia en la sala de clases, la participación y el logro de los objetivos de aprendizaje de todos y cada uno de los estudiantes, especialmente de aquellos que presentan Necesidades Educativas Especiales (NEE).
-                    </p>
+        <SidebarLayout title="Equipo PIE (Integración Escolar)" sidebarTitle="Nosotros" sidebarLinks={sidebarLinks}>
+            <div className="max-w-5xl mx-auto">
+
+                {/* Definition Card */}
+                <div className="bg-rose-50 border border-rose-100 rounded-2xl p-8 mb-12 flex flex-col md:flex-row gap-6 items-center">
+                    <div className="bg-rose-100 p-4 rounded-full shrink-0">
+                        <Heart className="text-rose-600 w-8 h-8" />
+                    </div>
+                    <div>
+                        <h3 className="text-xl font-bold text-rose-900 mb-2">Compromiso con la Inclusión</h3>
+                        <p className="text-rose-800/80 leading-relaxed">
+                            El <strong>Programa de Integración Escolar (PIE)</strong> es nuestra estrategia inclusiva para asegurar que todos los estudiantes, especialmente aquellos con Necesidades Educativas Especiales (NEE), alcancen sus objetivos de aprendizaje con el apoyo necesario en el aula.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* Coordinador Highlight (Optionally we could highlight the coordinator, but let's keep grid for now) */}
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {pieTeam.map((member, index) => (
-                        <div key={index} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1">
-                            <div className="h-64 relative group">
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors"></div>
-                                <img
-                                    src={member.image}
-                                    alt={member.name}
-                                    className="w-full h-full object-cover object-top"
-                                    onError={(e) => {
-                                        e.target.onerror = null;
-                                        e.target.src = `https://ui-avatars.com/api/?name=${member.name}&background=E11D48&color=fff&size=400`;
-                                    }}
-                                />
-                            </div>
-                            <div className="p-5 relative">
-                                <div className="absolute -top-6 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg text-rose-600 p-2">
-                                    {React.cloneElement(member.icon, { size: 24 })}
-                                </div>
-                                <h3 className="text-lg font-extrabold text-gray-800 leading-tight mb-1">{member.name}</h3>
-                                <p className="text-sm font-semibold text-rose-600 uppercase tracking-wider">{member.role}</p>
-                            </div>
-                        </div>
+                        <TeamMemberCard
+                            key={index}
+                            {...member}
+                            color="rose" // Using the 'rose' theme for PIE to distinguish from Academic Blue
+                            delay={index}
+                        />
                     ))}
                 </div>
+
             </div>
         </SidebarLayout>
     );
