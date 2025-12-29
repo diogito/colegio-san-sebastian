@@ -45,7 +45,7 @@ const News = () => {
                             <h3 style={{ margin: '0.5rem 0', color: 'var(--primary-color)' }}>{item.title}</h3>
                             <p style={{ fontSize: '0.9rem', color: '#666', marginBottom: '1rem' }}>{item.date}</p>
                             <p>{item.excerpt}</p>
-                            <button className="btn btn-outline" style={{ marginTop: '1.5rem', width: '100%' }}>Leer más</button>
+                            <button className="btn" style={{ marginTop: '1.5rem', width: '100%' }}>Leer más</button>
                         </Card>
                     ))}
                 </div>
