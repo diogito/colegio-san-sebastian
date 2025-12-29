@@ -1,0 +1,104 @@
+.layoutContainer {
+    background-color: var(--bg-color);
+    min-height: 80vh;
+}
+
+.pageHeader {
+    background: linear-gradient(rgba(0, 20, 60, 0.9), rgba(0, 20, 60, 0.8)), url('../../assets/images/hero_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.pageHeader h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+.contentWrapper {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 3rem;
+    padding-bottom: 4rem;
+}
+
+/* Sidebar */
+.sidebar {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 2rem;
+}
+
+.sidebarTitle {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.5rem;
+}
+
+.sidebarNav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebarLink {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--text-light);
+    border-radius: 4px;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.sidebarLink:hover {
+    background-color: #f1f5f9;
+    color: var(--secondary-color);
+    transform: translateX(5px);
+}
+
+.sidebarLink.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Main Content */
+.mainContent {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .contentWrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        margin-bottom: 2rem;
+    }
+}

@@ -15,8 +15,23 @@ const Header = () => {
 
     const navItems = [
         { name: 'Inicio', path: '/' },
-        { name: 'Nosotros', path: '/nosotros' },
-        { name: 'Comunidad', path: '/comunidad' },
+        {
+            name: 'Nosotros',
+            path: '/nosotros',
+            subItems: [
+                { name: 'Organización', path: '/nosotros/organizacion' },
+                { name: 'Directivos', path: '/nosotros/directivos' },
+                { name: 'Docentes', path: '/nosotros/docentes' },
+                { name: 'Equipo PIE', path: '/nosotros/pie' },
+            ]
+        },
+        {
+            name: 'Comunidad',
+            path: '/comunidad',
+            subItems: [
+                { name: 'Convivencia Escolar', path: '/comunidad/convivencia' }
+            ]
+        },
         { name: 'Documentos', path: '/documentos' },
         { name: 'Noticias', path: '/noticias' },
         { name: 'Contacto', path: '/contacto' },
@@ -52,14 +67,29 @@ const Header = () => {
 
                 <nav className={`${styles.navMenu} ${isMenuOpen ? styles.open : ''}`}>
                     {navItems.map((item) => (
-                        <Link
-                            key={item.path}
-                            to={item.path}
-                            className={`${styles.navLink} ${isActive(item.path)}`}
-                            onClick={closeMenu}
-                        >
-                            {item.name}
-                        </Link>
+                        <div key={item.path} className={styles.navItemWrapper}>
+                            <Link
+                                to={item.path}
+                                className={`${styles.navLink} ${isActive(item.path)}`}
+                                onClick={!item.subItems ? closeMenu : undefined}
+                            >
+                                {item.name}
+                            </Link>
+                            {item.subItems && (
+                                <div className={styles.dropdown}>
+                                    {item.subItems.map(subItem => (
+                                        <Link
+                                            key={subItem.path}
+                                            to={subItem.path}
+                                            className={styles.dropdownLink}
+                                            onClick={closeMenu}
+                                        >
+                                            {subItem.name}
+                                        </Link>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     ))}
                     <a href="/contacto" className={styles.ctaButton}>Admisión 2025</a>
                 </nav>
