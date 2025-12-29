@@ -131,6 +131,15 @@ img {
   color: var(--primary-color);
 }
 
+
 .section-padding {
   padding: var(--spacing-xl) 0;
+}
+
+/* Effects */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
