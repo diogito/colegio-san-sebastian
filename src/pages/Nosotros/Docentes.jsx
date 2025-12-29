@@ -1,99 +1,98 @@
 
 import React, { useMemo } from 'react';
 import SidebarLayout from '../../components/Layout/SidebarLayout';
-import TeamMemberCard from '../../components/UI/TeamMemberCard';
-import { BookOpen, GraduationCap, Users } from 'lucide-react';
+import ProfileCard from '../../components/UI/ProfileCard';
 
 const docentesData = [
     {
         name: "FABIOLA RIVAS",
         role: "EDUCADORA DE PÁRVULOS",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2025/10/IMG_4164-3.heic",
-        category: "Pre-Básica"
+        category: "Educación Parvularia"
     },
     {
         name: "NICOL MOYA",
-        role: "PROFESORA PRIMERO BÁSICO",
+        role: "1° BÁSICO",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8413-scaled-e1713379176806-1024x1024.jpg",
-        category: "Primer Ciclo"
+        category: "Primer Ciclo Básico"
     },
     {
         name: "NATALIE GONZÁLEZ",
-        role: "PROFESORA SEGUNDO BÁSICO",
+        role: "2° BÁSICO",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8392-scaled-e1713379128599-1024x1024.jpg",
-        category: "Primer Ciclo"
+        category: "Primer Ciclo Básico"
     },
     {
         name: "EMILIA ROSALES",
-        role: "PROFESORA TERCERO BÁSICO",
+        role: "3° BÁSICO",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-08-at-11.42.30-472x1024.jpeg",
-        category: "Primer Ciclo"
+        category: "Primer Ciclo Básico"
     },
     {
         name: "INÉS ROJAS",
-        role: "PROFESORA 4° BÁSICO",
+        role: "4° BÁSICO",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8407-scaled-e1713379194459-1024x1024.jpg",
-        category: "Primer Ciclo"
+        category: "Primer Ciclo Básico"
     },
     {
         name: "MARCIA REINOSO",
-        role: "PROFESORA QUINTO BÁSICO",
+        role: "5° BÁSICO",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8367-scaled-e1713379326901-1024x1024.jpg",
-        category: "Segundo Ciclo"
+        category: "Segundo Ciclo Básico"
     },
     {
         name: "PAULA ORELLANA",
-        role: "PROFESORA SEXTO BÁSICO",
+        role: "6° BÁSICO",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8403-scaled-e1713379722635-1024x1024.jpg",
-        category: "Segundo Ciclo"
+        category: "Segundo Ciclo Básico"
     },
     {
         name: "PATRICIO VALENZUELA",
-        role: "PROFESOR SÉPTIMO BÁSICO",
+        role: "7° BÁSICO",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8359-scaled-e1713379229842-1024x1024.jpg",
-        category: "Segundo Ciclo"
+        category: "Segundo Ciclo Básico"
     },
     {
         name: "CASANDRA MAUREIRA",
-        role: "PROFESORA OCTAVO BÁSICO",
+        role: "8° BÁSICO",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8388-scaled-e1713379289791-1024x1024.jpg",
-        category: "Segundo Ciclo"
+        category: "Segundo Ciclo Básico"
     },
     {
         name: "PÍA MUÑOZ",
-        role: "PROFESORA DE EDUCACIÓN FÍSICA",
+        role: "EDUCACIÓN FÍSICA",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2025/10/DSC_0410-150x150.jpg",
-        category: "Especialistas"
+        category: "Asignaturas"
     },
     {
         name: "CLAUDIO SEPÚLVEDA",
-        role: "PROFESOR DE EDUCACIÓN FÍSICA",
+        role: "EDUCACIÓN FÍSICA",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8399-scaled-e1713379308409-1024x1024.jpg",
-        category: "Especialistas"
+        category: "Asignaturas"
     },
     {
         name: "ESTEFANI MÉNDEZ",
-        role: "EDUCADORA DIFERENCIAL",
+        role: "ED. DIFERENCIAL",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8374-scaled-e1713379359277-1024x1024.jpg",
-        category: "Programa Integración"
+        category: "Apoyo PIE Aula"
     },
     {
         name: "FRANCIS REYES",
-        role: "EDUCADORA DIFERENCIAL",
+        role: "ED. DIFERENCIAL",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8382-scaled-e1713379375143-1024x1024.jpg",
-        category: "Programa Integración"
+        category: "Apoyo PIE Aula"
     },
     {
         name: "SARA RIVERA",
-        role: "EDUCADORA DIFERENCIAL",
+        role: "ED. DIFERENCIAL",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/04/IMG_8380-scaled-e1713379410453-1024x1024.jpg",
-        category: "Programa Integración"
+        category: "Apoyo PIE Aula"
     },
     {
         name: "ESTEFANÍA LARA",
-        role: "EDUCADORA DIFERENCIAL",
+        role: "ED. DIFERENCIAL",
         image: "https://colegiosansebastiandelinares.cl/wp-content/uploads/2024/05/IMG_8729-scaled-e1716651773693-1024x1024.jpg",
-        category: "Programa Integración"
+        category: "Apoyo PIE Aula"
     }
 ];
 
@@ -116,22 +115,16 @@ const Docentes = () => {
         }, {});
     }, []);
 
-    // Order of categories
-    const categoryOrder = ["Pre-Básica", "Primer Ciclo", "Segundo Ciclo", "Especialistas", "Programa Integración"];
+    const categoryOrder = ["Educación Parvularia", "Primer Ciclo Básico", "Segundo Ciclo Básico", "Asignaturas", "Apoyo PIE Aula"];
 
     return (
-        <SidebarLayout title="Equipo Docente" sidebarTitle="Nosotros" sidebarLinks={sidebarLinks}>
+        <SidebarLayout title="Cuerpo Docente" sidebarTitle="Nosotros" sidebarLinks={sidebarLinks}>
             <div className="prose max-w-none">
 
-                {/* Intro Banner */}
-                <div className="bg-gradient-to-r from-blue-900 to-blue-800 rounded-2xl p-8 mb-10 text-white shadow-xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 p-8 opacity-10">
-                        <GraduationCap size={150} />
-                    </div>
-                    <h2 className="text-3xl font-bold mb-4 text-white !mt-0">Formando el Futuro</h2>
-                    <p className="text-blue-100 text-lg leading-relaxed max-w-2xl">
-                        Nuestros profesores son el corazón del Colegio San Sebastián, dedicados a inspirar y guiar a cada estudiante en su camino de aprendizaje con vocación y excelencia.
-                    </p>
+                {/* Intro */}
+                <div className="mb-8 border-l-4 border-blue-800 pl-4 py-2 bg-slate-50">
+                    <h3 className="text-xl font-bold text-slate-900 m-0">Excelencia Académica</h3>
+                    <p className="text-slate-600 m-0 text-sm">Nuestros educadores guían el proceso de aprendizaje con vocación.</p>
                 </div>
 
                 {/* Grouped Grids */}
@@ -140,22 +133,19 @@ const Docentes = () => {
                     if (!items) return null;
 
                     return (
-                        <div key={category} className="mb-16">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="bg-blue-600 w-1 h-8 rounded-full"></div>
-                                <h3 className="text-2xl font-bold text-slate-800 !my-0">{category}</h3>
-                                <span className="text-sm font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">{items.length} Docentes</span>
+                        <div key={category} className="mb-12">
+                            <div className="flex items-center gap-2 mb-4">
+                                <h4 className="text-lg font-bold text-navy-900 border-b-2 border-slate-200 pb-1 pr-6 uppercase tracking-wider">{category}</h4>
                             </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                                 {items.map((docente, index) => (
-                                    <TeamMemberCard
+                                    <ProfileCard
                                         key={index}
                                         name={docente.name}
-                                        role={docente.role} // Keep original specific role
+                                        role={docente.role}
                                         image={docente.image}
-                                        icon={<BookOpen />}
-                                        color="blue"
+                                        layout="vertical"
                                         delay={index}
                                     />
                                 ))}
