@@ -1,0 +1,72 @@
+/* Shared Grid for Docentes & PIE */
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+    /* Space between cards */
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 640px) {
+    .gridContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .gridContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Section Grouping Headers */
+.groupHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.groupTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #001429;
+    /* Navy */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.25rem;
+    padding-right: 1.5rem;
+    font-family: 'Anton', sans-serif;
+}
+
+/* Vertical List for Directivos (Spacing Fix) */
+.verticalList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* "Respiración" requested by user */
+}
+
+/* Intro Box styling replacement */
+.introBox {
+    margin-bottom: 2rem;
+    border-left: 4px solid #002147;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: #f8fafc;
+}
+
+.introTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0;
+}
+
+.introText {
+    color: #475569;
+    margin: 0;
+    font-size: 0.875rem;
+}

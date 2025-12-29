@@ -1,0 +1,183 @@
+.cardWrapper {
+    background-color: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardWrapper:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: #3b82f6;
+}
+
+/* Vertical Layout */
+.verticalHeader {
+    height: 4px;
+    width: 100%;
+    background: linear-gradient(to right, #001429, #002147);
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    background-color: #f1f5f9;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.7s ease;
+}
+
+.cardWrapper:hover .image {
+    transform: scale(1.1);
+}
+
+.categoryOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    padding: 1rem 0.75rem 0.5rem;
+}
+
+.categoryText {
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+}
+
+.content {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.25rem;
+    line-height: 1.25;
+}
+
+.role {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #DC2626;
+    /* Red */
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Horizontal Layout */
+.horizontalWrapper {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    border-left: 4px solid #001429;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.horizontalWrapper:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.horizontalImageContainer {
+    width: 12rem;
+    height: auto;
+    min-height: 14rem;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.horizontalContent {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.horizontalRole {
+    display: inline-block;
+    background-color: #f0f4f8;
+    color: #001429;
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    width: fit-content;
+}
+
+.horizontalName {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.1;
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.divider {
+    width: 3rem;
+    height: 4px;
+    background-color: #DD0B35;
+    margin: 1rem 0;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.horizontalWrapper:hover .divider {
+    opacity: 1;
+}
+
+.emailLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #64748b;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.emailLink:hover {
+    color: #DD0B35;
+}
+
+@media (max-width: 640px) {
+    .horizontalWrapper {
+        flex-direction: column;
+    }
+
+    .horizontalImageContainer {
+        width: 100%;
+        height: 16rem;
+    }
+
+    .horizontalContent {
+        padding: 1.5rem;
+    }
+}

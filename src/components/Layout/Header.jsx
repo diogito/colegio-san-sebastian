@@ -40,12 +40,27 @@ const Header = () => {
     return (
         <header className={styles.header}>
             {/* Top Bar for quick contact */}
+            {/* Top Bar for quick contact */}
             <div className={styles.topBar}>
-                <div className="container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '2rem', fontSize: '0.9rem' }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><FaPhone /> (73) 250 2556</span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><FaEnvelope /> colegiosansebastian23@gmail.com</span>
-                    <a href="https://web.facebook.com/ColegioParticularSanSebastian" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', display: 'flex', alignItems: 'center' }}><FaFacebook size={16} /></a>
-                    <a href="https://www.instagram.com/colsansebastianlinares" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', display: 'flex', alignItems: 'center' }}><FaInstagram size={16} /></a>
+                <div className={`container ${styles.topBarContent}`}>
+                    <div className={styles.contactGroup}>
+                        <a href="tel:+56732502556" className={styles.contactItem}>
+                            <FaPhone className={styles.icon} />
+                            <span className={styles.contactText}>(73) 250 2556</span>
+                        </a>
+                        <a href="mailto:colegiosansebastiandelinares23@gmail.com" className={styles.contactItem}>
+                            <FaEnvelope className={styles.icon} />
+                            <span className={styles.contactText}>colegiosansebastiandelinares23@gmail.com</span>
+                        </a>
+                    </div>
+                    <div className={styles.socialGroup}>
+                        <a href="https://web.facebook.com/ColegioParticularSanSebastian" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                            <FaFacebook size={16} />
+                        </a>
+                        <a href="https://www.instagram.com/colsansebastianlinares" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                            <FaInstagram size={16} />
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -71,7 +86,7 @@ const Header = () => {
                             <Link
                                 to={item.path}
                                 className={`${styles.navLink} ${isActive(item.path)}`}
-                                onClick={!item.subItems ? closeMenu : undefined}
+                                onClick={closeMenu}
                             >
                                 {item.name}
                             </Link>

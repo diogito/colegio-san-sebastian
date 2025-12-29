@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, Mail, Award, ArrowRight } from 'lucide-react';
+import { User, Mail } from 'lucide-react';
+import styles from './ProfileCard.module.css';
 
 const ProfileCard = ({
     name,
@@ -21,42 +21,42 @@ const ProfileCard = ({
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: delay * 0.1 }}
-                className="flex flex-col sm:flex-row bg-white rounded-r-xl border-l-4 border-l-navy-900 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden"
+                className={styles.horizontalWrapper}
             >
-                {/* Photo - Fixed Aspect Ratio */}
-                <div className="w-full sm:w-48 h-64 sm:h-auto relative shrink-0">
+                {/* Photo */}
+                <div className={styles.horizontalImageContainer}>
                     {image ? (
                         <img
                             src={image}
                             alt={name}
-                            className="w-full h-full object-cover object-top filter grayscale-[10%] group-hover:grayscale-0 transition-all duration-500"
+                            className={styles.image}
+                            style={{ filter: 'grayscale(10%)' }}
                             onError={(e) => {
                                 e.target.style.display = 'none';
                                 e.target.nextSibling.style.display = 'flex';
                             }}
                         />
                     ) : null}
-                    <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-300 absolute top-0 left-0" style={{ display: image ? 'none' : 'flex' }}>
+                    <div style={{ width: '100%', height: '100%', display: image ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f1f5f9', color: '#cbd5e1', position: 'absolute', top: 0, left: 0 }}>
                         <User size={48} />
                     </div>
                 </div>
 
-                {/* Content - Left Aligned & Clean */}
-                <div className="flex-1 p-6 md:p-8 flex flex-col justify-center bg-white">
-                    <div className="mb-1">
-                        <span className="inline-block px-2 py-1 bg-navy-50 text-navy-800 text-xs font-black uppercase tracking-widest rounded mb-2">
+                {/* Content */}
+                <div className={styles.horizontalContent}>
+                    <div>
+                        <span className={styles.horizontalRole}>
                             {role}
                         </span>
-                        <h3 className="text-2xl font-bold text-slate-900 group-hover:text-blue-900 transition-colors font-heading leading-tight">
+                        <h3 className={styles.horizontalName}>
                             {name}
                         </h3>
                     </div>
 
-                    {/* Divider */}
-                    <div className="w-12 h-1 bg-red-600 my-4 opacity-50 group-hover:opacity-100 transition-opacity"></div>
+                    <div className={styles.divider}></div>
 
                     {email && (
-                        <a href={`mailto:${email}`} className="flex items-center gap-2 text-slate-500 hover:text-red-600 transition-colors text-sm font-medium w-fit">
+                        <a href={`mailto:${email}`} className={styles.emailLink}>
                             <Mail size={16} />
                             <span>{email}</span>
                         </a>
@@ -66,52 +66,48 @@ const ProfileCard = ({
         );
     }
 
-    // Vertical Layout (Staff / Grid) - Structured Card
+    // Vertical Layout (Staff / Grid)
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: delay * 0.05 }}
-            className="bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 group overflow-hidden border border-slate-100 flex flex-col"
+            className={styles.cardWrapper}
         >
-            {/* Header Color Line */}
-            <div className="h-1 w-full bg-gradient-to-r from-navy-900 to-blue-800"></div>
+            <div className={styles.verticalHeader}></div>
 
-            {/* Photo Top (Not Circle) */}
-            <div className="relative w-full aspect-[4/3] bg-slate-100 overflow-hidden">
+            <div className={styles.imageContainer}>
                 {image ? (
                     <img
                         src={image}
                         alt={name}
-                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
+                        className={styles.image}
                         onError={(e) => {
                             e.target.style.display = 'none';
                             e.target.nextSibling.style.display = 'flex';
                         }}
                     />
                 ) : null}
-                <div className="w-full h-full flex items-center justify-center bg-slate-100 text-slate-300 absolute top-0 left-0" style={{ display: image ? 'none' : 'flex' }}>
+                <div style={{ width: '100%', height: '100%', display: image ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f1f5f9', color: '#cbd5e1', position: 'absolute', top: 0, left: 0 }}>
                     <User size={32} />
                 </div>
 
-                {/* Category Overlay (Bottom of Image) */}
                 {category && (
-                    <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-3 pt-8">
-                        <p className="text-white text-[10px] font-bold uppercase tracking-wider opacity-90">
+                    <div className={styles.categoryOverlay}>
+                        <p className={styles.categoryText}>
                             {category}
                         </p>
                     </div>
                 )}
             </div>
 
-            {/* Info - Left Aligned */}
-            <div className="p-4 bg-white flex-1 flex flex-col justify-between">
+            <div className={styles.content}>
                 <div>
-                    <h4 className="text-lg font-bold text-slate-800 leading-tight mb-1 group-hover:text-blue-800 transition-colors">
+                    <h4 className={styles.name}>
                         {name}
                     </h4>
-                    <p className="text-xs font-bold text-red-600 uppercase tracking-wide">
+                    <p className={styles.role}>
                         {role}
                     </p>
                 </div>

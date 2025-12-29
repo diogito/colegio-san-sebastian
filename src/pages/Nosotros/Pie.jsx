@@ -1,7 +1,7 @@
-
 import React from 'react';
 import SidebarLayout from '../../components/Layout/SidebarLayout';
 import ProfileCard from '../../components/UI/ProfileCard';
+import styles from '../../components/UI/StaffGrid.module.css';
 
 const pieTeam = [
     {
@@ -62,14 +62,14 @@ const Pie = () => {
             <div className="max-w-5xl mx-auto">
 
                 {/* Definition Card */}
-                <div className="bg-slate-50 border-l-4 border-red-500 p-6 mb-8 rounded-r-lg">
-                    <h3 className="text-xl font-bold text-slate-800 m-0 mb-1">Programa de Integración Escolar</h3>
-                    <p className="text-slate-600 m-0 text-sm leading-relaxed">
+                <div className={styles.introBox} style={{ borderLeftColor: '#DD0B35' }}>
+                    <h3 className={styles.introTitle}>Programa de Integración Escolar</h3>
+                    <p className={styles.introText}>
                         Estrategia inclusiva para asegurar que todos los estudiantes, especialmente con NEE, alcancen sus objetivos.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className={styles.gridContainer}>
                     {pieTeam.map((member, index) => (
                         <ProfileCard
                             key={index}

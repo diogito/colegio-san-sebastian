@@ -1,7 +1,7 @@
-
 import React from 'react';
 import SidebarLayout from '../../components/Layout/SidebarLayout';
 import ProfileCard from '../../components/UI/ProfileCard';
+import styles from '../../components/UI/StaffGrid.module.css';
 
 const staff = [
     {
@@ -44,16 +44,16 @@ const Directivos = () => {
             <div className="max-w-4xl mx-auto">
 
                 {/* Simple Header */}
-                <div className="mb-10 text-center md:text-left">
-                    <h2 className="text-2xl font-bold text-slate-800">Liderazgo & Gestión</h2>
-                    <div className="w-16 h-1 bg-red-600 mt-2 mx-auto md:mx-0"></div>
-                    <p className="mt-4 text-slate-600">
+                <div style={{ marginBottom: '2.5rem' }}>
+                    <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#0f172a' }}>Liderazgo & Gestión</h2>
+                    <div style={{ width: '4rem', height: '4px', backgroundColor: '#DD0B35', marginTop: '0.5rem' }}></div>
+                    <p style={{ marginTop: '1rem', color: '#475569' }}>
                         Nuestro equipo de gestión es el pilar fundamental que sostiene y guía la visión educativa de nuestra institución.
                     </p>
                 </div>
 
                 {/* Directory List */}
-                <div className="flex flex-col gap-6">
+                <div className={styles.verticalList}>
                     {staff.map((member, index) => (
                         <ProfileCard
                             key={index}

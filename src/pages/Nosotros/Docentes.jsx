@@ -1,7 +1,7 @@
-
 import React, { useMemo } from 'react';
 import SidebarLayout from '../../components/Layout/SidebarLayout';
 import ProfileCard from '../../components/UI/ProfileCard';
+import styles from '../../components/UI/StaffGrid.module.css';
 
 const docentesData = [
     {
@@ -122,9 +122,9 @@ const Docentes = () => {
             <div className="prose max-w-none">
 
                 {/* Intro */}
-                <div className="mb-8 border-l-4 border-blue-800 pl-4 py-2 bg-slate-50">
-                    <h3 className="text-xl font-bold text-slate-900 m-0">Excelencia Académica</h3>
-                    <p className="text-slate-600 m-0 text-sm">Nuestros educadores guían el proceso de aprendizaje con vocación.</p>
+                <div className={styles.introBox}>
+                    <h3 className={styles.introTitle}>Excelencia Académica</h3>
+                    <p className={styles.introText}>Nuestros educadores guían el proceso de aprendizaje con vocación.</p>
                 </div>
 
                 {/* Grouped Grids */}
@@ -134,11 +134,11 @@ const Docentes = () => {
 
                     return (
                         <div key={category} className="mb-12">
-                            <div className="flex items-center gap-2 mb-4">
-                                <h4 className="text-lg font-bold text-navy-900 border-b-2 border-slate-200 pb-1 pr-6 uppercase tracking-wider">{category}</h4>
+                            <div className={styles.groupHeader}>
+                                <h4 className={styles.groupTitle}>{category}</h4>
                             </div>
 
-                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div className={styles.gridContainer}>
                                 {items.map((docente, index) => (
                                     <ProfileCard
                                         key={index}
