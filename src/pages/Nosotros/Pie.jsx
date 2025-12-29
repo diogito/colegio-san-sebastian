@@ -49,8 +49,16 @@ const pieTeam = [
 ];
 
 const Pie = () => {
+    const sidebarLinks = [
+        { label: 'Historia', path: '/nosotros' },
+        { label: 'Organización Institucional', path: '/nosotros/organizacion' },
+        { label: 'Equipo Directivo', path: '/nosotros/directivos' },
+        { label: 'Docentes y Asistentes', path: '/nosotros/docentes' },
+        { label: 'Equipo PIE', path: '/nosotros/pie' },
+    ];
+
     return (
-        <SidebarLayout title="Equipo PIE (Programa de Integración Escolar)">
+        <SidebarLayout title="Equipo PIE (Programa de Integración Escolar)" sidebarTitle="Nosotros" sidebarLinks={sidebarLinks}>
             <div className="prose max-w-none">
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-4 mb-8">
                     <p className="text-gray-700 m-0">

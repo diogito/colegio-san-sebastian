@@ -82,8 +82,16 @@ const docentes = [
 ];
 
 const Docentes = () => {
+    const sidebarLinks = [
+        { label: 'Historia', path: '/nosotros' },
+        { label: 'Organización Institucional', path: '/nosotros/organizacion' },
+        { label: 'Equipo Directivo', path: '/nosotros/directivos' },
+        { label: 'Docentes y Asistentes', path: '/nosotros/docentes' },
+        { label: 'Equipo PIE', path: '/nosotros/pie' },
+    ];
+
     return (
-        <SidebarLayout title="Equipo Docente">
+        <SidebarLayout title="Equipo Docente" sidebarTitle="Nosotros" sidebarLinks={sidebarLinks}>
             <div className="prose max-w-none">
                 <p className="lead text-xl text-gray-600 mb-8">
                     Nuestros profesores son el corazón del Colegio San Sebastián, dedicados a inspirar y guiar a cada estudiante en su camino de aprendizaje.
