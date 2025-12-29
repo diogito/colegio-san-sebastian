@@ -17,10 +17,10 @@
   --text-light: #555555;
 
   /* Typography */
-  --font-heading: 'Poppins', sans-serif;
-  /* Modern, geometric, highly legible */
-  --font-body: 'Inter', sans-serif;
-  /* Optimized for screens, excellent readability */
+  --font-heading: 'Anton', sans-serif;
+  /* Condensed Uppercase */
+  --font-body: 'Antonio', sans-serif;
+  /* Tall, readable */
   --font-ui: 'Inter', sans-serif;
   /* For small UI elements */
 
@@ -61,9 +61,9 @@ h5,
 h6 {
   font-family: var(--font-heading);
   color: var(--primary-color);
-  line-height: 1.2;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 a {
