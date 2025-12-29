@@ -17,6 +17,10 @@
 .pageHeader h1 {
     font-size: 3rem;
     letter-spacing: 2px;
+    color: var(--white);
+    /* Force white color to override global H1 style */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    /* Add shadow for legibility */
 }
 
 .contentWrapper {
