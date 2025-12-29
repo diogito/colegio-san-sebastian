@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Header.module.css';
+import logo from '../../assets/images/logo.png';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,10 +23,23 @@ const Header = () => {
 
     return (
         <header className={styles.header}>
+            {/* Top Bar for quick contact */}
+            <div className={styles.topBar}>
+                <div className="container" style={{ display: 'flex', justifyContent: 'flex-end', gap: '2rem', fontSize: '0.9rem' }}>
+                    <span>📞 (73) 250 2556</span>
+                    <span>✉️ colegiosansebastian23@gmail.com</span>
+                </div>
+            </div>
+
             <div className={`container ${styles.navContainer}`}>
                 <div className={styles.logo}>
                     <Link to="/" onClick={closeMenu}>
-                        <span>Colegio San Sebastián</span>
+                        {/* Displaying extracted logo image */}
+                        <img src={logo} alt="Insignia Colegio San Sebastián" className={styles.logoImg} />
+                        <div className={styles.logoText}>
+                            <span className={styles.schoolName}>Colegio San Sebastián</span>
+                            <span className={styles.city}>de Linares</span>
+                        </div>
                     </Link>
                 </div>
 
@@ -44,6 +58,7 @@ const Header = () => {
                             {item.name}
                         </Link>
                     ))}
+                    <a href="/contacto" className={styles.ctaButton}>Admisión 2025</a>
                 </nav>
             </div>
         </header>

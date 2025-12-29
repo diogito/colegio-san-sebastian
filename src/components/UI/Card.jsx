@@ -2,40 +2,28 @@ import React from 'react';
 
 const Card = ({ title, children, className = '' }) => {
     return (
-        <div className={`
-      bg-white 
-      rounded-lg 
-      shadow-md 
-      p-6 
-      transition-all 
-      duration-300 
-      hover:shadow-lg 
-      hover:-translate-y-1 
-      border 
-      border-gray-100
-      ${className}
-    `}
+        <div className={className}
             style={{
                 backgroundColor: 'var(--white)',
                 padding: '2rem',
-                borderRadius: '1rem',
+                borderLeft: '4px solid var(--secondary-color)', // Red accent on left
                 boxShadow: 'var(--shadow-md)',
-                transition: 'transform 0.3s, box-shadow 0.3s',
-                height: '100%'
+                height: '100%',
+                position: 'relative',
+                transition: 'transform 0.3s'
             }}>
             {title && (
                 <h3 style={{
-                    fontSize: '1.25rem',
+                    fontSize: '1.5rem',
                     marginBottom: '1rem',
                     color: 'var(--primary-color)',
-                    borderBottom: '2px solid var(--secondary-color)',
-                    display: 'inline-block',
-                    paddingBottom: '0.25rem'
+                    fontFamily: 'var(--font-heading)',
+                    textTransform: 'uppercase'
                 }}>
                     {title}
                 </h3>
             )}
-            <div style={{ color: 'var(--text-color)' }}>
+            <div style={{ color: 'var(--text-light)', fontFamily: 'var(--font-body)', fontSize: '1.1rem' }}>
                 {children}
             </div>
         </div>

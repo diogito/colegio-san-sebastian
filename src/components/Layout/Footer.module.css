@@ -1,40 +1,32 @@
 .footer {
     background-color: var(--primary-color);
-    color: #e5e7eb;
-    padding: var(--spacing-xl) 0 2rem;
+    color: #a0aec0;
+    padding: 4rem 0 2rem;
     margin-top: auto;
+    border-top: 5px solid var(--secondary-color);
 }
 
 .footerContent {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
 }
 
 .column h3 {
     color: var(--white);
-    font-size: 1.25rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.column h3::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 2px;
-    background-color: var(--secondary-color);
+    letter-spacing: 1px;
 }
 
 .contactInfo p {
-    margin-bottom: 0.75rem;
+    margin-bottom: 1rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.8rem;
+    font-family: var(--font-body);
 }
 
 .socialLinks {
@@ -43,19 +35,26 @@
 }
 
 .socialIcon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--white);
-    font-size: 1.5rem;
-    transition: color 0.2s;
+    border-radius: 50%;
+    transition: background-color 0.3s;
 }
 
 .socialIcon:hover {
-    color: var(--secondary-color);
+    background-color: var(--secondary-color);
 }
 
 .copyright {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 2rem;
     text-align: center;
-    font-size: 0.875rem;
-    color: #9ca3af;
+    font-size: 0.9rem;
+    font-family: var(--font-ui);
+    opacity: 0.7;
 }

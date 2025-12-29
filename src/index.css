@@ -1,32 +1,44 @@
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@300;400;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  /* Colors */
-  --primary-color: #0a1f44;
-  --primary-light: #1e3a66;
-  --secondary-color: #c92a2a; /* Accent red */
-  --text-color: #1f2937;
-  --text-light: #6b7280;
-  --bg-color: #f8fafc;
+  /* Corporate Colors */
+  --primary-color: #001429;
+  /* Navy */
+  --secondary-color: #DD0B35;
+  /* Red */
+  --accent-color: #FAD02C;
+  /* Yellow */
+  --glow-color: #00AEEF;
+  /* Neon Blue Glow */
+  --bg-color: #F7F3F5;
+  /* Light Pinkish Grey */
   --white: #ffffff;
-  --glass-bg: rgba(255, 255, 255, 0.8);
-  --glass-border: rgba(255, 255, 255, 0.3);
+
+  /* Text */
+  --text-color: #1a1a1a;
+  --text-light: #555555;
 
   /* Typography */
-  --font-heading: 'Inter', system-ui, sans-serif;
-  --font-body: 'Roboto', system-ui, sans-serif;
+  --font-heading: 'Anton', sans-serif;
+  /* Condensed Uppercase */
+  --font-body: 'Antonio', sans-serif;
+  /* Tall, readable */
+  --font-ui: 'Inter', sans-serif;
+  /* For small UI elements */
 
   /* Spacing */
   --spacing-sm: 0.5rem;
   --spacing-md: 1rem;
   --spacing-lg: 2rem;
-  --spacing-xl: 4rem;
-  
-  /* Shadows */
+  --spacing-xl: 5rem;
+  /* Larger spacing for grandeur */
+
+  /* Shadows & Effects */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --neon-glow: 0 0 15px var(--glow-color);
 }
 
 * {
@@ -39,15 +51,22 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg-color);
   color: var(--text-color);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 1.125rem;
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   color: var(--primary-color);
-  line-height: 1.2;
-  margin-bottom: var(--spacing-md);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 a {
@@ -77,31 +96,39 @@ img {
 }
 
 .btn {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--primary-color);
-  color: var(--white);
-  border-radius: 0.5rem;
-  font-weight: 600;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  border-radius: 0;
+  /* Sharp corners per identity */
+  border: 2px solid var(--accent-color);
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .btn:hover {
-  background-color: var(--primary-light);
-  transform: translateY(-1px);
+  background-color: #fff;
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(250, 208, 44, 0.4);
 }
 
 .btn-outline {
   background-color: transparent;
-  border: 2px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 2px solid var(--white);
+  color: var(--white);
 }
 
 .btn-outline:hover {
-  background-color: var(--primary-color);
-  color: var(--white);
+  background-color: var(--white);
+  color: var(--primary-color);
 }
 
 .section-padding {

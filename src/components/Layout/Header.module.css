@@ -1,67 +1,102 @@
 .header {
     background-color: var(--primary-color);
+    /* Navy Navy */
     color: var(--white);
-    padding: 1rem 0;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 4px solid var(--secondary-color);
+    /* Red line at bottom */
+}
+
+.topBar {
+    background-color: #000c18;
+    padding: 0.5rem 0;
+    color: #ccc;
+    font-family: var(--font-ui);
 }
 
 .navContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem var(--spacing-md);
+    height: 90px;
 }
 
 .logo a {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    text-decoration: none;
 }
 
-.logo span {
+.logoImg {
+    height: 70px;
+    width: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+}
+
+.logoText {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.schoolName {
     font-family: var(--font-heading);
+    color: var(--white);
+    font-size: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
+}
+
+.city {
+    font-family: var(--font-body);
+    color: var(--accent-color);
+    /* Yellow */
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .navMenu {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     align-items: center;
 }
 
 .navLink {
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 500;
-    font-size: 0.95rem;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     padding: 0.5rem 0;
     position: relative;
+    transition: color 0.3s;
 }
 
 .navLink:hover,
 .activeLink {
-    color: var(--white);
+    color: var(--accent-color);
 }
 
-.navLink::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
+.ctaButton {
     background-color: var(--secondary-color);
-    transition: width 0.3s;
+    color: var(--white);
+    padding: 0.5rem 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    text-transform: uppercase;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+    transition: background-color 0.3s;
 }
 
-.navLink:hover::after,
-.activeLink::after {
-    width: 100%;
+.ctaButton:hover {
+    background-color: #b0092a;
 }
 
 .mobileToggle {
@@ -69,11 +104,11 @@
     background: none;
     border: none;
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .mobileToggle {
         display: block;
     }
@@ -85,27 +120,22 @@
         width: 100%;
         background-color: var(--primary-color);
         flex-direction: column;
-        padding: 1rem 0;
-        gap: 0;
+        padding: 0;
         max-height: 0;
         overflow: hidden;
-        transition: max-height 0.3s ease-out;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: max-height 0.4s ease-in-out;
+        border-bottom: 4px solid var(--secondary-color);
     }
 
     .navMenu.open {
-        max-height: 400px;
+        max-height: 500px;
+        padding-bottom: 2rem;
     }
 
     .navLink {
-        display: block;
         width: 100%;
-        padding: 1rem 2rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .ctaButton {
-        margin: 1rem 2rem;
-        display: inline-block;
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
 }
