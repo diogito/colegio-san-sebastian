@@ -1,94 +1,177 @@
+import { motion } from 'framer-motion';
+import { FaGraduationCap, FaUsers, FaMedal, FaClock } from 'react-icons/fa';
 import Section from '../components/UI/Section';
-import Card from '../components/UI/Card';
 import styles from './Home.module.css';
 import sellosImg from '../assets/images/sellos.png';
 
 const Home = () => {
+    // Animation variants
+    const fadeIn = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+    };
+
+    const staggerContainer = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
     return (
         <>
             {/* Hero Section */}
             <div className={styles.hero}>
                 <div className={`container ${styles.heroContent}`}>
-                    <h1>COLEGIO SAN SEBASTIÁN</h1>
-                    <p>Jornada Escolar Completa de Pre-Kínder a 8° Básico</p>
-                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                    >
+                        COLEGIO SAN SEBASTIÁN
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                        Jornada Escolar Completa de Pre-Kínder a 8° Básico
+                    </motion.p>
+                    <motion.div
+                        style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                    >
                         <a href="/nosotros" className="btn">Nuestra Historia</a>
                         <a href="/contacto" className="btn btn-outline">Contáctanos</a>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
-            <hr className={styles.neonSeparator} />
-
-            {/* Mission & Vision - Split Layout */}
-            <Section className={styles.missionSection}>
+            {/* Impact Statistics Section */}
+            <Section className={styles.statsSection}>
                 <div className="container">
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
-                        <div>
-                            <h2 style={{ fontSize: '2.5rem', marginBottom: '2rem' }}>Misión Institucional</h2>
-                            <p style={{ fontSize: '1.25rem', marginBottom: '1.5rem', color: '#555' }}>
-                                Nuestro establecimiento educacional, pone su acento en la <strong>excelencia académica</strong>,
-                                la <strong>inclusión</strong> y la formación de personas con <strong>valores sólidos</strong>.
-                            </p>
-                            <p style={{ color: '#777' }}>
-                                Buscamos desarrollar el potencial de cada estudiante en un ambiente familiar y seguro, promoviendo el respeto y la responsabilidad.
-                            </p>
-                        </div>
-
-                        <div style={{
-                            background: 'var(--secondary-color)',
-                            padding: '3rem',
-                            color: 'white',
-                            position: 'relative'
-                        }}>
-                            <h3 style={{ color: 'var(--accent-color)', fontSize: '2rem', marginBottom: '1.5rem' }}>Nuestra Visión</h3>
-                            <p style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
-                                "Entregar una educación de calidad basada en valores, que permita formar personas íntegras, autónomas y responsables."
-                            </p>
-                            <div style={{
-                                position: 'absolute',
-                                top: '-20px',
-                                right: '-20px',
-                                width: '100px',
-                                height: '100px',
-                                border: '5px solid var(--accent-color)',
-                                zIndex: -1
-                            }}></div>
-                        </div>
+                    <div className={styles.statsGrid}>
+                        <motion.div
+                            className={styles.statItem}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={fadeIn}
+                        >
+                            <FaClock className={styles.statIcon} />
+                            <h3>+40 Años</h3>
+                            <p>De Trayectoria</p>
+                        </motion.div>
+                        <motion.div
+                            className={styles.statItem}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={fadeIn}
+                            transition={{ delay: 0.1 }}
+                        >
+                            <FaGraduationCap className={styles.statIcon} />
+                            <h3>J.E.C.</h3>
+                            <p>Excelencia Académica</p>
+                        </motion.div>
+                        <motion.div
+                            className={styles.statItem}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={fadeIn}
+                            transition={{ delay: 0.2 }}
+                        >
+                            <FaUsers className={styles.statIcon} />
+                            <h3>Familiar</h3>
+                            <p>Comunidad Unida</p>
+                        </motion.div>
                     </div>
                 </div>
             </Section>
 
-            <hr className={styles.neonSeparator} />
+            {/* Mission & Vision - Split Layout with clean typography */}
+            <Section className={styles.missionSection}>
+                <div className="container">
+                    <div className={styles.missionGrid}>
+                        <motion.div
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={fadeIn}
+                        >
+                            <h2 className={styles.sectionTitleDark}>Misión Institucional</h2>
+                            <p className={styles.leadText}>
+                                Nuestro establecimiento educacional pone su acento en la <strong>excelencia académica</strong>,
+                                la <strong>inclusión</strong> y la formación de personas con <strong>valores sólidos</strong>.
+                            </p>
+                            <p className={styles.bodyText}>
+                                Buscamos desarrollar el potencial de cada estudiante en un ambiente familiar y seguro, promoviendo el respeto y la responsabilidad como pilares fundamentales del aprendizaje.
+                            </p>
+                        </motion.div>
 
-            {/* Sellos Section - Dark Navy */}
+                        <motion.div
+                            className={styles.visionBox}
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <h3>Nuestra Visión</h3>
+                            <p>
+                                "Entregar una educación de calidad basada en valores, que permita formar personas íntegras, autónomas y responsables."
+                            </p>
+                            <div className={styles.visionDecoration}></div>
+                        </motion.div>
+                    </div>
+                </div>
+            </Section>
+
+            {/* Sellos Section - Glassmorphism */}
             <div className={styles.sellosSection}>
                 <div className="container">
-                    <h2>Nuestros Sellos Educativos</h2>
-                    <div className={styles.selloGrid}>
-                        <div className={styles.selloItem}>
+                    <motion.h2
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        Nuestros Sellos Educativos
+                    </motion.h2>
+                    <motion.div
+                        className={styles.selloGrid}
+                        variants={staggerContainer}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        <motion.div className={styles.selloItem} variants={fadeIn}>
                             <div className={styles.selloIconWrapper}>
-                                {/* Visual placeholder for specific icon part of the sprite/image if needed, currently using generic image for demo */}
-                                <span style={{ fontSize: '2rem', color: 'var(--secondary-color)' }}>🎓</span>
+                                <FaGraduationCap size={40} color="var(--primary-color)" />
                             </div>
                             <h3>Alta Motivación</h3>
                             <p>Fomentamos el interés y la participación activa de nuestros estudiantes.</p>
-                        </div>
-                        <div className={styles.selloItem}>
+                        </motion.div>
+                        <motion.div className={styles.selloItem} variants={fadeIn}>
                             <div className={styles.selloIconWrapper}>
-                                <span style={{ fontSize: '2rem', color: 'var(--secondary-color)' }}>🤝</span>
+                                <FaUsers size={40} color="var(--primary-color)" />
                             </div>
                             <h3>Comunidad Activa</h3>
                             <p>Promovemos la integración de padres y apoderados en la vida escolar.</p>
-                        </div>
-                        <div className={styles.selloItem}>
+                        </motion.div>
+                        <motion.div className={styles.selloItem} variants={fadeIn}>
                             <div className={styles.selloIconWrapper}>
-                                <span style={{ fontSize: '2rem', color: 'var(--secondary-color)' }}>⭐</span>
+                                <FaMedal size={40} color="var(--primary-color)" />
                             </div>
                             <h3>Formación Integral</h3>
                             <p>Desarrollo cognitivo, afectivo, social y valórico de cada estudiante.</p>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
         </>

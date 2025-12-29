@@ -1,13 +1,14 @@
+/* Hero Section */
 .hero {
     background: linear-gradient(rgba(0, 20, 60, 0.85), rgba(0, 20, 60, 0.7)), url('../assets/images/hero_bg.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     color: var(--white);
-    padding: 10rem 0 8rem;
+    padding: 12rem 0 10rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-bottom: 5px solid var(--secondary-color);
 }
 
 .heroContent {
@@ -17,102 +18,214 @@
 
 .hero h1 {
     color: var(--white);
-    font-size: 4.5rem;
+    font-size: 5rem;
     line-height: 1;
     margin-bottom: 1.5rem;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: -1px;
 }
 
 .hero p {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-family: var(--font-body);
+    font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: var(--accent-color);
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
 }
 
-/* Neon Glow Separator */
-.neonSeparator {
-    height: 4px;
-    background: var(--glow-color);
-    box-shadow: 0 0 15px var(--glow-color), 0 0 30px var(--glow-color);
-    margin: 0;
-    border: none;
+/* Stats Section (New) */
+.statsSection {
+    background: var(--secondary-color);
+    padding: 4rem 0;
+    color: var(--white);
+    margin-top: -4rem;
+    /* Overlap Hero slightly */
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    text-align: center;
+}
+
+.statItem h3 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin: 0.5rem 0;
+}
+
+.statItem p {
+    font-family: var(--font-ui);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.statIcon {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Mission Section */
 .missionSection {
     background-color: var(--white);
-    padding: 6rem 0;
+    padding: 8rem 0;
 }
 
-.sellosSection {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 6rem 0;
+.missionGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 5rem;
+    align-items: center;
+}
+
+.sectionTitleDark {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.leadText {
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.bodyText {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Vision Box */
+.visionBox {
+    background: var(--primary-color);
+    padding: 4rem;
+    color: white;
     position: relative;
-    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.visionBox h3 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.visionBox p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+
+.visionDecoration {
+    position: absolute;
+    top: -30px;
+    right: -30px;
+    width: 150px;
+    height: 150px;
+    border: 8px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+/* Sellos Section - Glassmorphism */
+.sellosSection {
+    background-color: #0f172a;
+    /* Slate 900 */
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(221, 11, 53, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(0, 174, 239, 0.1) 0%, transparent 40%);
+    color: var(--white);
+    padding: 8rem 0;
+    position: relative;
 }
 
 .sellosSection h2 {
     text-align: center;
     color: var(--white);
-    font-size: 3rem;
-    margin-bottom: 4rem;
-    text-shadow: 0 0 10px var(--glow-color);
+    font-size: 3.5rem;
+    margin-bottom: 5rem;
 }
 
 .selloGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .selloItem {
     text-align: center;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s;
+    padding: 3rem 2rem;
+    /* Glass Effect */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1px;
+    /* Sharp modern corners */
+    transition: all 0.4s ease;
 }
 
 .selloItem:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--secondary-color);
+    transform: translateY(-15px);
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .selloIconWrapper {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color: var(--white);
     border-radius: 50%;
-    /* Keeping icons circular as found in extraction */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    margin: 0 auto 2rem;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s;
 }
 
-.selloIcon {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+.selloItem:hover .selloIconWrapper {
+    transform: scale(1.1) rotate(5deg);
 }
 
 .selloItem h3 {
     color: var(--accent-color);
     font-size: 1.5rem;
     margin-bottom: 1rem;
+    letter-spacing: 1px;
 }
 
 .selloItem p {
-    color: #ccc;
+    color: #cbd5e1;
+    /* Slate 300 */
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 2.5rem;
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .statsSection {
+        margin-top: 0;
+    }
+
+    .visionBox {
+        padding: 2rem;
     }
 }
